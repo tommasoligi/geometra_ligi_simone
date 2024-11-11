@@ -42,6 +42,8 @@ header a:hover {
     object-fit: cover;
     opacity: 0.6;
     pointer-events: none; /* Disabilita l'interazione per nascondere i controlli */
+    pointer-events: none; /* Rimuove interazioni */
+    user-select: none; /* Impedisce la selezione */
 }
 
 .hero-content {
