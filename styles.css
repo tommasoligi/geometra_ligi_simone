@@ -41,6 +41,7 @@ header a:hover {
     height: 100%;
     object-fit: cover;
     opacity: 0.6;
+    pointer-events: none; /* Disabilita l'interazione per nascondere i controlli */
 }
 
 .hero-content {
@@ -54,9 +55,11 @@ header a:hover {
 
 /* Servizi */
 .services {
-    padding: 50px 0;
-    background-color: #f5f5f5;
+    padding: 60px 0;
+    background-color: #fff;
+    text-align: center;
 }
+
 
 .services h2 {
     font-size: 2.5em;
