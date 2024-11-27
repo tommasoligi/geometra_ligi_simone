@@ -1,9 +1,0 @@
-# File robots.txt per www.geometraligisimone.it
-User-agent: *  # Si applica a tutti i crawler
-Disallow: /admin/  # Blocca l'accesso alla sezione di amministrazione
-Disallow: /login/  # Blocca l'accesso alla pagina di login
-Allow: /  # Permette l'accesso alla home page
-Allow: /chi-siamo  # Permette l'accesso alla pagina "Chi siamo"
-Allow: /servizi  # Permette l'accesso alla pagina "Servizi"
-Allow: /contatti  # Permette l'accesso alla pagina "Contatti"
-Sitemap: https://www.geometraligisimone.it/sitemap.xml  # http://www.sitemaps.org/schemas/sitemap/0.9
