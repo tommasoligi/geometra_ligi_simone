@@ -458,3 +458,18 @@ header a:hover {
 .add-review:hover {
     background-color: #ffbb33;
 }
+.star-rating {
+    font-size: 30px;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.star-rating .star:hover,
+.star-rating .star.selected {
+    color: #f39c12;
+}
+
+.star-rating .star.selected {
+    color: #f39c12; /* Colore per la stella selezionata */
+}
+
