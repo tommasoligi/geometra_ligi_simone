@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recensioni</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+  <body>
+<body id="recensioni-page">
+    <header>
+        <h1>Recensioni</h1>
+    </header>
+    
+    <main>
+        <h2>Aggiungi la tua recensione</h2>
+        <form id="reviewForm">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="review">Recensione:</label>
+            <textarea id="review" name="review" rows="4" required></textarea>
+            
+            <label for="rating">Valutazione:</label>
+            <div id="rating" class="stars">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
+            </div>
+            
+            <button type="submit">Invia recensione</button>
+        </form>
+        
+        <h2>Le recensioni dei nostri clienti</h2>
+        <ul id="reviewsList">
+            <!-- Le recensioni saranno inserite dinamicamente qui -->
+        </ul>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h5>Contatti</h5>
+                    <p><a href="tel:+390721123456" class="tel-link">+39 0721 123456</a></p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Indirizzo</h5>
+                    <p><a href="https://www.google.com/maps" class="address-link" target="_blank">Via Esempio, 1 - Pesaro</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="reviews.js"></script>
+</body>
+</html>
