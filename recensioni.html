@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recensioni - Geometra Ligi Simone</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Recensioni dei Clienti</h1>
+    </header>
+    
+    <main>
+        <!-- Modulo per aggiungere recensioni -->
+        <section>
+            <h2>Lascia una recensione</h2>
+            <form id="reviewForm">
+                <label for="name">Nome:</label><br>
+                <input type="text" id="name" name="name" required><br>
+                
+                <label for="review">Recensione:</label><br>
+                <textarea id="review" name="review" rows="5" required></textarea><br>
+                
+                <button type="submit">Invia Recensione</button>
+            </form>
+        </section>
+        
+        <!-- Sezione per visualizzare le recensioni -->
+        <section id="reviewsSection">
+            <h2>Recensioni Precedenti</h2>
+            <ul id="reviewsList"></ul>
+        </section>
+    </main>
+
+    <script src="recensioni.js"></script>
+</body>
+</html>
