@@ -1,0 +1,61 @@
+/* Importa lo stile principale */
+@import url('style.css');
+
+/* Stili specifici per la pagina delle recensioni */
+main {
+    width: 80%;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;  /* Usa lo sfondo standard */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    margin-bottom: 2rem;
+}
+
+label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: inherit;  /* Usa lo stile del bottone esistente */
+    color: inherit;
+    border: 1px solid #333;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;  /* Mantieni l'effetto hover principale */
+}
+
+ul#reviewsList {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul#reviewsList li {
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+ul#reviewsList li strong {
+    color: #333;  /* Colore testo standard */
+}
