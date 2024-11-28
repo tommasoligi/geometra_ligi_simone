@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recensioni - Studio Geometra Ligi Simone</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> <!-- Stile principale -->
+    <link rel="stylesheet" href="recensioni.css"> <!-- Stile specifico per la pagina delle recensioni -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<!-- Header con Navbar -->
+<header class="sticky-header">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="index.html">Studio Geometra Ligi Simone</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="chi-siamo.html">Chi Siamo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="servizi.html">Servizi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contatti.html">Contatti</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="recensioni.html">Recensioni</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<!-- Corpo principale della pagina -->
+<main class="container my-5">
+    <section>
+        <h2 class="text-center">Lascia una Recensione</h2>
+        <form id="reviewForm">
+            <div class="form-group">
+                <label for="name">Nome:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="review">Recensione:</label>
+                <textarea class="form-control" id="review" name="review" rows="5" required></textarea>
+            </div>
+            <!-- Selezione delle stelle -->
+            <div class="form-group">
+                <label for="rating">Valutazione:</label><br>
+                <div class="star-rating" id="rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+                <input type="hidden" id="starRating" name="starRating" value="0">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Invia Recensione</button>
+        </form>
+    </section>
+    
+    <section id="reviewsSection" class="mt-5">
+        <h2 class="text-center">Recensioni Precedenti</h2>
+        <ul id="reviewsList" class="list-group"></ul>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="footer bg-dark text-white py-4">
+    <div class="container">
+        <!-- ... (resto del footer) -->
+    </div>
+</footer>
+
+<script>
+// Gestione delle stelle nel form
+document.querySelectorAll('.star').forEach(star => {
+    star.addEventListener('click', function() {
+        let value = this.getAttribute('data-value');
+        document.getElementById('starRating').value = value;
+        document.querySelectorAll('.star').forEach(s => {
+            s.classList.remove('selected');
+        });
+        for (let i = 0; i < value; i++) {
+            document.querySelectorAll('.star')[i].classList.add('selected');
+        }
+    });
+});
+
+// Gestione delle recensioni
+document.getElementById('reviewForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const review = document.getElementById('review').value;
+    const rating = document.getElementById('starRating').value;
+    const reviewsList = document.getElementById('reviewsList');
+    
+    const li = document.createElement('li');
+    li.classList.add('list-group-item');
+    li.innerHTML = `<strong>${name}</strong> - <span class="stars">${'&#9733;'.repeat(rating)}${'&#9734;'.repeat(5 - rating)}</span><br>${review}`;
+    
+    reviewsList.appendChild(li);
+    
+    // Pulisce il form
+    document.getElementById('reviewForm').reset();
+    document.querySelectorAll('.star').forEach(s => s.classList.remove('selected'));
+});
+</script>
+
+<style>
+.star-rating .star {
+    font-size: 2rem;
+    color: gray;
+    cursor: pointer;
+    display: inline-block;
+}
+.star-rating .star.selected {
+    color: gold;
+}
+.stars {
+    color: gold;
+}
+</style>
+
+</body>
+</html>
