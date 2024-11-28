@@ -1,6 +1,6 @@
 /* Stili base */
 body {
-    font-family: 'Poppins', sans-serif;  /* Usa lo stesso font del resto del sito */
+    font-family: 'Poppins', sans-serif;
     background-color: #f9f9f9;
     margin: 0;
     padding: 0;
@@ -8,7 +8,7 @@ body {
 
 /* Header */
 header {
-    background-color: #333;  /* Colore dello sfondo del header */
+    background-color: #333;
     color: white;
     text-align: center;
     padding: 1rem 0;
@@ -21,7 +21,7 @@ header a {
 }
 
 header a:hover {
-    color: #f9a825;  /* Colore al passaggio del mouse per i link */
+    color: #f9a825;
 }
 
 /* Main */
@@ -34,7 +34,6 @@ main {
     border-radius: 8px;
 }
 
-/* Titoli */
 h1, h2 {
     color: #333;
     text-align: center;
@@ -49,7 +48,7 @@ label {
     display: block;
     margin-top: 1rem;
     font-weight: bold;
-    color: #333;  /* Colore del testo per le etichette */
+    color: #333;
 }
 
 input[type="text"], textarea {
@@ -59,270 +58,6 @@ input[type="text"], textarea {
     border: 1px solid #ccc;
     border-radius: 5px;
     color: #333;
-}
-
-button {
-    display: block;
-    width: 100%;
-    padding: 0.75rem;
-    background-color: #f9a825;  /* Usa lo stesso colore dei pulsanti in altre pagine */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 1rem;
-}
-
-button:hover {
-    background-color: #ffbb33;  /* Colore al passaggio del mouse per i pulsanti */
-}
-
-/* Lista recensioni */
-ul#reviewsList {
-    list-style-type: none;
-    padding: 0;
-}
-
-ul#reviewsList li {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    margin-bottom: 1rem;
-    padding: 1rem;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Aggiungi ombra come nelle altre sezioni */
-}
-
-ul#reviewsList li strong {
-    color: #f9a825;  /* Colore dorato per i nomi o titoli delle recensioni */
-}
-
-ul#reviewsList li p {
-    color: #555;  /* Colore del testo per la recensione */
-    line-height: 1.6;
-}
-
-/* Footer */
-.footer {
-    background-color: #333;
-    color: white;
-    padding: 40px 0;
-}
-
-.footer .container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.footer .row {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.footer h5 {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-    color: #f92525;
-}
-
-.footer ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer ul li {
-    margin-bottom: 10px;
-}
-
-.footer a {
-    text-decoration: none;
-    color: white;
-    transition: color 0.3s ease;
-}
-
-.footer a:hover {
-    color: #96f925; /* Cambia colore al passaggio del mouse */
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    main {
-        width: 90%;  /* Aumenta la larghezza del contenuto per schermi piccoli */
-        padding: 1rem;
-    }
-
-    h1, h2 {
-        font-size: 2em;
-    }
-
-    .footer .row {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .footer .col-md-3 {
-        margin-bottom: 20px;
-        text-align: center;
-    }
-}
-
-/* Hero Section */
-.hero {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
-    background: url('https://via.placeholder.com/1920x1080?text=Progettazione+Edilizia') no-repeat center center/cover;
-    color: #fff;
-}
-
-.hero video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.6;
-    pointer-events: none; /* Disabilita l'interazione per nascondere i controlli */
-}
-
-.hero-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    z-index: 2;
-}
-
-/* Servizi */
-.services {
-    padding: 60px 0;
-    background-color: #fff;
-    text-align: center;
-}
-
-.services h2 {
-    font-size: 2.5em;
-    margin-bottom: 30px;
-    color: #333;
-}
-
-.services .row .col-md-4 {
-    margin-bottom: 30px;
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
-}
-
-.services .col-md-4:hover {
-    transform: translateY(-10px);
-}
-
-.services .col-md-4 h4 {
-    font-size: 1.5em;
-    color: #333;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-}
-
-.footer-bottom {
-    text-align: center;
-    margin-top: 20px;
-    border-top: 1px solid #f92525;
-    padding-top: 20px;
-}
-
-.footer-bottom p {
-    font-size: 0.9em;
-}
-
-.footer .col-md-3 {
-    margin-bottom: 30px;
-}
-
-/* Stile per il numero di telefono nel footer */
-.tel-link {
-    color: #f9a825; /* Colore dorato per il numero */
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.tel-link:hover {
-    color: #ffbb33; /* Colore al passaggio del mouse */
-}
-
-/* Stile per il link dell'indirizzo nel footer */
-.address-link {
-    color: #f9a825; /* Colore dorato per il link */
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.address-link:hover {
-    color: #ffbb33; /* Colore al passaggio del mouse */
-}
-
-/* Mappa */
-.map-container {
-    background-color: #ffffff;
-}
-
-.map-container iframe {
-    border-radius: 8px;
-}
-
-/* Stili per la pagina delle recensioni */
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f9f9f9;
-    margin: 0;
-    padding: 0;
-}
-
-header {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 1rem 0;
-}
-
-main {
-    width: 80%;
-    margin: 2rem auto;
-    background-color: #fff;
-    padding: 2rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
-
-h1, h2 {
-    color: #333;
-    text-align: center;
-}
-
-form {
-    margin-bottom: 2rem;
-}
-
-label {
-    display: block;
-    margin-top: 1rem;
-    font-weight: bold;
-}
-
-input[type="text"], textarea {
-    width: 100%;
-    padding: 0.5rem;
-    margin-top: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
 }
 
 button {
@@ -341,6 +76,26 @@ button:hover {
     background-color: #ffbb33;
 }
 
+/* Stelle per la valutazione */
+.stars {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.star {
+    font-size: 2em;
+    color: #ccc;
+    transition: color 0.2s;
+}
+
+.star:hover,
+.star.selected {
+    color: #f9a825;  /* Colore dorato per le stelle selezionate */
+}
+
+/* Lista recensioni */
 ul#reviewsList {
     list-style-type: none;
     padding: 0;
@@ -405,26 +160,4 @@ ul#reviewsList li p {
 
 .footer a:hover {
     color: #96f925;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    main {
-        width: 90%;
-        padding: 1rem;
-    }
-
-    h1, h2 {
-        font-size: 2em;
-    }
-
-    .footer .row {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .footer .col-md-3 {
-        margin-bottom: 20px;
-        text-align: center;
-    }
 }
