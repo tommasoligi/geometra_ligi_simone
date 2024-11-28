@@ -3,124 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recensioni - Geometra Ligi Simone</title>
-    <link rel="stylesheet" href="recensioni.css"
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Studio Geometra Ligi Simone</title>
+    <title>Recensioni - Studio Geometra Ligi Simone</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css"> <!-- Include il tuo CSS personalizzato -->
+    <link rel="stylesheet" href="styles.css"> <!-- Stile principale -->
+    <link rel="stylesheet" href="recensioni.css"> <!-- Stile specifico per la pagina delle recensioni -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="favicon" href="/favicon.png" type="image/x-favicon">
 </head>
 <body>
 
-<!-- Sticky Header -->
+<!-- Header con Navbar -->
 <header class="sticky-header">
     <div class="container">
-                    <h2>Recensioni dei Clienti</h2>
         <nav class="navbar navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" href="index.html">Geometra Ligi Simone</a>
-            
-            <!-- Pulsante per il menu mobile, visibile solo su dispositivi mobili -->
-            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="index.html">Studio Geometra Ligi Simone</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
-            <!-- Menu per desktop e mobile -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="chi-siamo.html">Chi Siamo</a></li>
                     <li class="nav-item"><a class="nav-link" href="servizi.html">Servizi</a></li>
                     <li class="nav-item"><a class="nav-link" href="contatti.html">Contatti</a></li>
-                    <li class="nav-item"><a class="nav-link" href="recensioni">Recensioni</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="recensioni.html">Recensioni</a></li>
                 </ul>
             </div>
         </nav>
     </div>
-    </header>
+</header>
 
-    <main>
-        <!-- Modulo per aggiungere recensioni -->
-        <section>
-            <h2>Lascia una recensione</h2>
-            <form id="reviewForm">
-                <label for="name">Nome:</label><br>
-                <input type="text" id="name" name="name" required><br>
-                
-                <label for="review">Recensione:</label><br>
-                <textarea id="review" name="review" rows="5" required></textarea><br>
-                
-                <button type="submit">Invia Recensione</button>
-            </form>
-        </section>
-        
-        <!-- Sezione per visualizzare le recensioni -->
-        <section id="reviewsSection">
-            <h2>Recensioni Precedenti</h2>
-            <ul id="reviewsList"></ul>
-        </section>
-    </main>
+<!-- Corpo principale della pagina -->
+<main class="container my-5">
+    <section>
+        <h2 class="text-center">Lascia una Recensione</h2>
+        <form id="reviewForm">
+            <div class="form-group">
+                <label for="name">Nome:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="review">Recensione:</label>
+                <textarea class="form-control" id="review" name="review" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Invia Recensione</button>
+        </form>
+    </section>
+    
+    <section id="reviewsSection" class="mt-5">
+        <h2 class="text-center">Recensioni Precedenti</h2>
+        <ul id="reviewsList" class="list-group"></ul>
+    </section>
+</main>
 
-    <script src="recensioni.js"></script>
-    <footer class="footer">
+<!-- Footer -->
+<footer class="footer bg-dark text-white py-4">
     <div class="container">
         <div class="row">
-            <!-- Colonna 1: Collegamenti rapidi -->
+            <!-- Collegamenti rapidi -->
             <div class="col-md-3">
                 <h5>Collegamenti</h5>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="chi-siamo.html">Chi Siamo</a></li>
-                    <li><a href="servizi.html">Servizi</a></li>
-                    <li><a href="contatti.html">Contatti</a></li>
-                    <li><a href="recensioni.html">Recensioni</a></li>
-                    
+                <ul class="list-unstyled">
+                    <li><a href="index.html" class="text-white">Home</a></li>
+                    <li><a href="chi-siamo.html" class="text-white">Chi Siamo</a></li>
+                    <li><a href="servizi.html" class="text-white">Servizi</a></li>
+                    <li><a href="contatti.html" class="text-white">Contatti</a></li>
+                    <li><a href="recensioni.html" class="text-white">Recensioni</a></li>
                 </ul>
             </div>
             
-            <!-- Colonna 2: Contatti -->
+            <!-- Contatti -->
             <div class="col-md-3">
                 <h5>Contatti</h5>
-                <p><a href="https://www.google.com/maps?q=Via+del+Progresso+34,+61122+Pesaro+PU,+Italia" target="_blank" class="address-link">Via del Progresso 34, 61122 Pesaro PU, Italia</a></p>
-                <p>Email: <a href="mailto:info@studiolegi.com">info@simoneligi.it</a></p>
-                <p>Telefono: <a href="tel:0721202316" class="tel-link">0721 202316</a></p> <!-- Aggiungi il link tel: -->
-            <p>Cellulare: <a href="tel:+393355418693" class="tel-link">+39 335 541 8693</a></p> <!-- Aggiungi il link tel: -->
+                <p>Via del Progresso 34, 61122 Pesaro PU, Italia</p>
+                <p>Email: <a href="mailto:info@simoneligi.it" class="text-white">info@simoneligi.it</a></p>
+                <p>Telefono: <a href="tel:0721202316" class="text-white">0721 202316</a></p>
+                <p>Cellulare: <a href="tel:+393355418693" class="text-white">+39 335 541 8693</a></p>
             </div>
 
-            <!-- Colonna 3: Seguici sui Social -->
+            <!-- Seguici sui Social -->
             <div class="col-md-3">
                 <h5>Seguici</h5>
-                <div class="social-links">
-                    <a href="https://www.facebook.com/simone.ligi.142" target="_blank" class="social-icon">
-                        <i class="fab fa-facebook-f"></i> Facebook
-                    </a>
-                    <br>
-                    <a href="https://wa.me/393669510843" target="_blank" class="social-icon">
-                        <i class="fab fa-whatsapp"></i> WhatsApp
-                    </a>
-                </div>
+                <a href="https://www.facebook.com/simone.ligi.142" class="text-white d-block" target="_blank">Facebook</a>
+                <a href="https://wa.me/393669510843" class="text-white d-block" target="_blank">WhatsApp</a>
             </div>
 
-            <!-- Colonna 4: Altri Link -->
+            <!-- Altri link -->
             <div class="col-md-3">
                 <h5>Altri Link</h5>
-                <ul class="footer-links">
-                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                    <li><a href="termini-e-condizioni.html">Termini e Condizioni</a></li>
-                    <li><a href="cookie-policy.html">Cookie Policy</a></li>
+                <ul class="list-unstyled">
+                    <li><a href="privacy-policy.html" class="text-white">Privacy Policy</a></li>
+                    <li><a href="termini-e-condizioni.html" class="text-white">Termini e Condizioni</a></li>
+                    <li><a href="cookie-policy.html" class="text-white">Cookie Policy</a></li>
                 </ul>
             </div>
         </div>
-        P.I. 01158760411 - Iscritto all'Albo dei Geometri della Provincia di Pesaro-Urbino al n. 1258
-        <!-- Copyright -->
-        <div class="footer-bottom">
-            <p>&copy; 2024 Studio Geometra Ligi Simone. Tutti i diritti riservati.</p>
+        <div class="text-center mt-3">
+            <p>&copy; 2024 Studio Geometra Ligi Simone. Tutti i diritti riservati. P.I. 01158760411</p>
         </div>
     </div>
 </footer>
+
+<script src="recensioni.js"></script>
 </body>
 </html>
