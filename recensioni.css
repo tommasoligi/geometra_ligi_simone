@@ -6,11 +6,18 @@ main {
     width: 80%;
     margin: 2rem auto;
     padding: 2rem;
-    background-color: white;  /* Usa lo sfondo standard */
+    background-color: white;  /* Sfondo standard */
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Titoli coerenti con il footer */
+h1, h2 {
+    color: inherit;  /* Usa il colore principale del sito */
+    text-align: center;
+}
+
+/* Stile per il modulo */
 form {
     margin-bottom: 2rem;
 }
@@ -19,6 +26,7 @@ label {
     display: block;
     margin-top: 1rem;
     font-weight: bold;
+    color: inherit;  /* Colore standard */
 }
 
 input[type="text"], textarea {
@@ -32,15 +40,15 @@ input[type="text"], textarea {
 button {
     width: 100%;
     padding: 0.75rem;
-    background-color: inherit;  /* Usa lo stile del bottone esistente */
-    color: inherit;
+    background-color: inherit;  /* Colore come il footer */
+    color: inherit;             /* Testo come nel footer */
     border: 1px solid #333;
     border-radius: 5px;
     cursor: pointer;
 }
 
 button:hover {
-    opacity: 0.9;  /* Mantieni l'effetto hover principale */
+    background-color: rgba(0, 0, 0, 0.05);  /* Leggero effetto hover */
 }
 
 ul#reviewsList {
@@ -57,5 +65,5 @@ ul#reviewsList li {
 }
 
 ul#reviewsList li strong {
-    color: #333;  /* Colore testo standard */
+    color: inherit;  /* Colore del testo come nel footer */
 }
