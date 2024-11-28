@@ -57,3 +57,55 @@ document.addEventListener('DOMContentLoaded', () => {
         stars.forEach(star => star.classList.remove('selected'));
     }
 });
+<script>
+    // Gestione delle stelle cliccabili
+    const stars = document.querySelectorAll('.star');
+    let ratingValue = 0;
+
+    // Aggiungiamo un listener per ogni stella
+    stars.forEach(star => {
+        star.addEventListener('click', () => {
+            ratingValue = star.getAttribute('data-value');
+            updateStars();
+        });
+    });
+
+    // Funzione per aggiornare la visualizzazione delle stelle
+    function updateStars() {
+        stars.forEach(star => {
+            if (star.getAttribute('data-value') <= ratingValue) {
+                star.classList.add('selected');
+            } else {
+                star.classList.remove('selected');
+            }
+        });
+    }
+
+    // Gestione del form di recensione
+    const reviewForm = document.getElementById('reviewForm');
+    const reviewsList = document.getElementById('reviewsList');
+
+    reviewForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById('name').value;
+        const reviewText = document.getElementById('review').value;
+
+        // Creiamo l'elemento della recensione
+        const reviewItem = document.createElement('li');
+        reviewItem.classList.add('review-item');
+        reviewItem.innerHTML = `
+            <strong>${name}</strong> (Valutazione: ${ratingValue} stelle)<br>
+            <p>${reviewText}</p>
+        `;
+
+        // Aggiungiamo la recensione alla lista
+        reviewsList.appendChild(reviewItem);
+
+        // Resettiamo il form
+        reviewForm.reset();
+        ratingValue = 0;
+        updateStars(); // Reset delle stelle
+    });
+</script>
+
