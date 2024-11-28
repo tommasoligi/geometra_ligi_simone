@@ -6,14 +6,14 @@ main {
     width: 80%;
     margin: 2rem auto;
     padding: 2rem;
-    background-color: white;  /* Sfondo standard */
+    background-color: #fff;  /* Sfondo bianco, coerente con il sito */
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Titoli coerenti con il footer */
 h1, h2 {
-    color: inherit;  /* Usa il colore principale del sito */
+    color: #333;  /* Colore principale del testo */
     text-align: center;
 }
 
@@ -26,7 +26,7 @@ label {
     display: block;
     margin-top: 1rem;
     font-weight: bold;
-    color: inherit;  /* Colore standard */
+    color: #333;  /* Colore del testo */
 }
 
 input[type="text"], textarea {
@@ -40,17 +40,18 @@ input[type="text"], textarea {
 button {
     width: 100%;
     padding: 0.75rem;
-    background-color: inherit;  /* Colore come il footer */
-    color: inherit;             /* Testo come nel footer */
+    background-color: #f9a825;  /* Giallo per il bottone */
+    color: #fff;                /* Testo bianco per il bottone */
     border: 1px solid #333;
     border-radius: 5px;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: rgba(0, 0, 0, 0.05);  /* Leggero effetto hover */
+    background-color: #ffbb33;  /* Colore hover per il bottone */
 }
 
+/* Sezione delle recensioni */
 ul#reviewsList {
     list-style-type: none;
     padding: 0;
@@ -65,5 +66,31 @@ ul#reviewsList li {
 }
 
 ul#reviewsList li strong {
-    color: inherit;  /* Colore del testo come nel footer */
+    color: #333;  /* Colore principale per il nome nella recensione */
+}
+
+/* Stile per le stelle di valutazione */
+.star-rating {
+    display: inline-block;
+    direction: rtl;  /* Imposta la direzione da destra a sinistra */
+    font-size: 1.5em;
+    color: #f9a825;  /* Colore giallo per le stelle */
+}
+
+.star-rating input {
+    display: none;  /* Nasconde i checkbox */
+}
+
+.star-rating label {
+    cursor: pointer;
+    color: #ccc;  /* Colore iniziale delle stelle (grigio chiaro) */
+}
+
+.star-rating input:checked ~ label {
+    color: #f9a825;  /* Colore giallo per le stelle selezionate */
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: #ffbb33;  /* Colore hover per le stelle */
 }
