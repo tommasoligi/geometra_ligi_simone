@@ -499,25 +499,6 @@ header h1 {
     margin-top: 20px;
 }
 
-/* Impostazioni per il footer della pagina recensioni */
-footer#recensioni-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-    font-size: 1em;
-}
-
-footer#recensioni-footer a {
-    color: #f9a825;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-footer#recensioni-footer a:hover {
-    color: #ffbb33;
-}
-
 /* Stile per le stelle */
 .stars {
     display: flex;
