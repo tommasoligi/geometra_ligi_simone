@@ -12,6 +12,18 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="favicon" href="/favicon.png" type="image/x-favicon">
+    <style>
+        .star-rating .star {
+            cursor: pointer;
+            color: #ccc;
+        }
+        .star-rating .star.full {
+            color: #ffcc00;
+        }
+        .star-rating .star.selected {
+            color: #ffcc00;
+        }
+    </style>
 </head>
 <body>
 
@@ -37,9 +49,9 @@
 </header>
 <!-- Sezione Recensioni -->
 <main class="container mt-5">
- <section class="contact-section py-5">
-            <h2 class="text-center">Aggiungi la tua recensione</h2>
- </section>
+    <section class="contact-section py-5">
+        <h2 class="text-center">Aggiungi la tua recensione</h2>
+    </section>
     <form id="reviewForm">
         <label for="name">Nome:</label>
         <input type="text" id="name" name="name" class="form-control mb-3" required>
@@ -47,18 +59,18 @@
         <label for="review">Recensione:</label>
         <textarea id="review" name="review" class="form-control mb-3" rows="4" required></textarea>
         
- <!-- Selezione delle stelle -->
-            <div class="form-group">
-                <label for="rating">Valutazione:</label><br>
-                <div class="star-rating" id="rating">
-                    <span class="star" data-value="1">&#9733;</span>
-                    <span class="star" data-value="2">&#9733;</span>
-                    <span class="star" data-value="3">&#9733;</span>
-                    <span class="star" data-value="4">&#9733;</span>
-                    <span class="star" data-value="5">&#9733;</span>
-                </div>
-                <input type="hidden" id="starRating" name="starRating" value="0">
+        <!-- Selezione delle stelle -->
+        <div class="form-group">
+            <label for="rating">Valutazione:</label><br>
+            <div class="star-rating" id="rating">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
             </div>
+            <input type="hidden" id="starRating" name="starRating" value="0">
+        </div>
 
         <button type="submit" class="btn btn-primary">Invia recensione</button>
     </form>
@@ -112,6 +124,61 @@
 
 <!-- Script per la gestione delle stelle -->
 <script>
+    // Funzione per generare le stelle in base alla valutazione
+    function generateStarRating(rating) {
+        const starContainer = document.createElement('div');
+        starContainer.classList.add('star-rating'); // Container per le stelle
+
+        for (let i = 1; i <= 5; i++) {
+            const star = document.createElement('span');
+            star.classList.add('star'); // Classe per ogni stella
+
+            // Se la valutazione è maggiore o uguale al valore della stella, la stella è piena
+            if (i <= rating) {
+                star.classList.add('full');
+            } else {
+                star.classList.add('empty');
+            }
+
+            star.innerHTML = '&#9733;'; // Il carattere della stella
+            starContainer.appendChild(star); // Aggiungi la stella al container
+        }
+
+        return starContainer; // Restituisce il container con le stelle
+    }
+
+    // Funzione per caricare le recensioni dal Local Storage
+    function loadReviews() {
+        const reviewsList = document.getElementById('reviewsList');
+        const savedReviews = JSON.parse(localStorage.getItem('reviews')) || [];
+
+        savedReviews.forEach(review => {
+            const reviewItem = document.createElement('li');
+            reviewItem.classList.add('review-item');
+
+            // Crea le stelle per la recensione
+            const starRating = generateStarRating(review.rating);
+
+            // Inserisce il nome, la valutazione e il testo della recensione
+            reviewItem.innerHTML = `
+                <strong>${review.name}</strong><br>
+                <div class="review-stars"></div> <!-- Stelle visibili sotto il nome -->
+                <p>${review.text}</p>
+            `;
+            reviewItem.querySelector('.review-stars').appendChild(starRating); // Aggiungi le stelle
+
+            // Aggiungi la recensione alla lista
+            reviewsList.appendChild(reviewItem);
+        });
+    }
+
+    // Funzione per salvare una nuova recensione nel Local Storage
+    function saveReview(name, text, rating) {
+        const savedReviews = JSON.parse(localStorage.getItem('reviews')) || [];
+        savedReviews.push({ name, text, rating });
+        localStorage.setItem('reviews', JSON.stringify(savedReviews));
+    }
+
     // Gestione delle stelle cliccabili
     const stars = document.querySelectorAll('.star');
     let ratingValue = 0;
@@ -119,7 +186,7 @@
     // Aggiungiamo un listener per ogni stella
     stars.forEach(star => {
         star.addEventListener('click', () => {
-            ratingValue = star.getAttribute('data-value');
+            ratingValue = parseInt(star.getAttribute('data-value'));
             updateStars();
         });
     });
@@ -127,7 +194,7 @@
     // Funzione per aggiornare la visualizzazione delle stelle
     function updateStars() {
         stars.forEach(star => {
-            if (star.getAttribute('data-value') <= ratingValue) {
+            if (parseInt(star.getAttribute('data-value')) <= ratingValue) {
                 star.classList.add('selected');
             } else {
                 star.classList.remove('selected');
@@ -145,22 +212,40 @@
         const name = document.getElementById('name').value;
         const reviewText = document.getElementById('review').value;
 
-        // Creiamo l'elemento della recensione
+        if (ratingValue === 0) {
+            alert('Per favore, seleziona una valutazione.');
+            return;
+        }
+
+        // Salva la recensione nel Local Storage
+        saveReview(name, reviewText, ratingValue);
+
+        // Crea l'elemento della recensione
         const reviewItem = document.createElement('li');
         reviewItem.classList.add('review-item');
+
+        // Crea le stelle per la recensione
+        const starRating = generateStarRating(ratingValue);
+
+        // Inserisce il nome, la valutazione e il testo della recensione
         reviewItem.innerHTML = `
-            <strong>${name}</strong> (Valutazione: ${ratingValue} stelle)<br>
+            <strong>${name}</strong><br>
+            <div class="review-stars"></div> <!-- Stelle visibili sotto il nome -->
             <p>${reviewText}</p>
         `;
+        reviewItem.querySelector('.review-stars').appendChild(starRating); // Aggiungi le stelle
 
-        // Aggiungiamo la recensione alla lista
+        // Aggiungi la recensione alla lista
         reviewsList.appendChild(reviewItem);
 
-        // Resettiamo il form
+        // Resetta il form
         reviewForm.reset();
         ratingValue = 0;
-        updateStars(); // Reset delle stelle
+        updateStars(); // Reset delle stelle nel form
     });
+
+    // Carica le recensioni esistenti al caricamento della pagina
+    document.addEventListener('DOMContentLoaded', loadReviews);
 </script>
 
 </body>
