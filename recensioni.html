@@ -123,6 +123,7 @@
 <script>
     // Funzione per generare le stelle in base alla valutazione
     function generateStarRating(rating) {
+        console.log("Generating star rating for:", rating);
         const starContainer = document.createElement('div');
         starContainer.classList.add('star-rating'); // Container per le stelle
 
@@ -146,10 +147,18 @@
 
     // Funzione per caricare le recensioni dal Local Storage
     function loadReviews() {
+        console.log("Loading reviews...");
         const reviewsList = document.getElementById('reviewsList');
         const savedReviews = JSON.parse(localStorage.getItem('reviews')) || [];
 
+        if (savedReviews.length > 0) {
+            console.log("Found reviews:", savedReviews);
+        } else {
+            console.log("No reviews found.");
+        }
+
         savedReviews.forEach(review => {
+            console.log("Loading review:", review);
             const reviewItem = document.createElement('li');
             reviewItem.classList.add('review-item');
 
@@ -171,6 +180,7 @@
 
     // Funzione per salvare una nuova recensione nel Local Storage
     function saveReview(name, text, rating) {
+        console.log("Saving review:", { name, text, rating });
         const savedReviews = JSON.parse(localStorage.getItem('reviews')) || [];
         savedReviews.push({ name, text, rating });
         localStorage.setItem('reviews', JSON.stringify(savedReviews));
@@ -190,6 +200,7 @@
 
     // Funzione per aggiornare la visualizzazione delle stelle
     function updateStars() {
+        console.log("Updating stars with value:", ratingValue);
         stars.forEach(star => {
             if (parseInt(star.getAttribute('data-value')) <= ratingValue) {
                 star.classList.add('selected');
